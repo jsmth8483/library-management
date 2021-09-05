@@ -7,25 +7,15 @@ function Book(title, author, pages, image, isRead) {
 	this.pages = pages;
 	this.image = image;
 	this.isRead = isRead;
-	this.info = function () {
-		return `${this.title} by ${this.author}, ${this.pages} pages, ${
-			isRead ? 'has bean read' : 'not been read'
-		}`;
-	};
 	booksCreated++;
 }
 
 function addBookToLibrary(book) {
-	//myLibrary.push(book);
 	updateLocalStorage(book);
 	localStorage.setItem('booksCreated', booksCreated);
 }
 
 function removeBookFromLibrary(id) {
-	// const indexToRemove = myLibrary.findIndex((book) => {
-	// 	return book.id == id;
-	// });
-	//myLibrary.splice(indexToRemove, 1);
 	removeFromLocalStorage(id);
 }
 
@@ -49,7 +39,6 @@ function getBooksFromLocalStorage() {
 
 function displayBooks() {
 	const container = document.querySelector('.container');
-	//myLibrary.forEach((book) => displayBook(book, container));
 	const books = getBooksFromLocalStorage();
 	books.forEach((book) => {
 		displayBook(book, container);
@@ -132,7 +121,6 @@ function createBookControlsElements(book) {
 	const bookControls = document.createElement('div');
 	bookControls.classList.add('book-controls');
 
-	//Add read button that toggles based on read status. Clicking will set the read status in the object and change styling of button
 	const bookReadButton = createBookReadButton(book);
 	bookControls.appendChild(bookReadButton);
 
@@ -162,7 +150,6 @@ function createBookRemoveBtn(book) {
 function createBookReadButton(book) {
 	const readButton = document.createElement('div');
 	readButton.classList.add('read-book');
-	//readButton.textContent = 'Unread';
 	readButton.setAttribute('data-id', book.id);
 	setButtonReadStatus(readButton, book);
 	readButton.addEventListener('click', (e) => {
@@ -200,7 +187,7 @@ addBookFormToggle.addEventListener('click', (e) => {
 });
 
 const addForm = document.querySelector('.add-book-form');
-// console.log(submitFormButton);
+
 addForm.addEventListener('submit', (e) => {
 	e.preventDefault();
 	const title = document.querySelector('#title');
