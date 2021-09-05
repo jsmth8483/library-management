@@ -170,7 +170,7 @@ function setButtonReadStatus(readButton, book) {
 		readButton.textContent = 'Read';
 	} else {
 		readButton.classList.remove('read');
-		readButton.textContent = 'Unread';
+		readButton.textContent = 'Not Read';
 	}
 }
 
