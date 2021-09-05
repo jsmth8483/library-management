@@ -1,14 +1,5 @@
 let booksCreated = localStorage.getItem('booksCreated') || 1;
 
-// const myLibrary = [
-// 	new Book('The Hobbit', 'J.R.R. Tolkien', 291, 'images/the_hobbit.jpg', false),
-// 	new Book('The Hobbit', 'J.R.R. Tolkien', 292, 'images/the_hobbit.jpg', false),
-// 	new Book('The Hobbit', 'J.R.R. Tolkien', 293, 'images/the_hobbit.jpg', false),
-// 	new Book('The Hobbit', 'J.R.R. Tolkien', 294, 'images/the_hobbit.jpg', false),
-// 	new Book('The Hobbit', 'J.R.R. Tolkien', 295, 'images/the_hobbit.jpg', true),
-// 	new Book('The Hobbit', 'J.R.R. Tolkien', 296, 'images/the_hobbit.jpg', false),
-// ];
-
 function Book(title, author, pages, image, isRead) {
 	this.id = booksCreated;
 	this.title = title;
