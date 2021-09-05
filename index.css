@@ -1,0 +1,159 @@
+body {
+	margin: 0;
+	font-family: 'Roboto', sans-serif;
+	box-sizing: border-box;
+	background-color: #323031;
+	color: black;
+}
+
+h1 {
+	margin: 0;
+	padding: 10px;
+	font-size: 1.8em;
+}
+
+h2 {
+	font-size: 1em;
+	font-weight: normal;
+	margin: 0;
+}
+
+h3 {
+	font-size: 0.8em;
+	margin: 0;
+	font-weight: normal;
+}
+
+header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-color: #084c61;
+	box-shadow: 0 2px 4px #1d1d1d;
+	z-index: 2;
+	position: relative;
+	color: #ffc857;
+}
+
+header .add-book-form-toggle {
+	height: 30px;
+}
+
+.form-slider {
+	/* height: 0; */
+	max-height: 0;
+	overflow: hidden;
+	transition: max-height 0.5s linear;
+	position: relative;
+	display: block;
+	width: 100%;
+}
+
+form {
+	background-color: #ffc857;
+	color: black;
+	z-index: 1;
+	width: 100%;
+	padding: 15px;
+	display: grid;
+	grid-gap: 10px;
+	grid-template-columns: 1fr 1fr 1fr;
+	justify-items: start;
+}
+
+.add-book-form-toggle {
+	background-color: #ffc857;
+	width: 75px;
+	padding: 5px;
+	display: flex;
+	justify-content: center;
+	float: right;
+	border-radius: 0 0 150px 150px;
+}
+
+form button[type='submit'] {
+	width: 100px;
+	justify-self: center;
+}
+
+.expanded {
+	max-height: 150px;
+}
+
+form label {
+	margin-left: 5px;
+}
+
+.container {
+	display: grid;
+	/* flex-wrap: wrap; */
+	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+	width: 80%;
+	margin: 0 auto;
+	justify-content: space-around;
+	position: relative;
+}
+
+.card {
+	margin: 30px;
+	width: 120px;
+	height: 186px;
+	position: relative;
+}
+
+.card img {
+	width: 100%;
+	margin: 0;
+	position: absolute;
+}
+
+.book-details {
+	position: relative;
+	opacity: 0;
+	height: 100%;
+	background-color: rgba(23, 126, 137, 0.9);
+	transition: opacity 0.3s linear, background-color 0.3s linear;
+}
+
+.book-details h2,
+.book-details h3 {
+	text-decoration: underline;
+}
+
+.book-details:hover {
+	opacity: 1;
+}
+
+.book-controls {
+	display: flex;
+	justify-content: center;
+}
+
+.book-controls div {
+	font-size: 12px;
+	margin: 5px;
+	padding: 5px;
+	text-decoration: none;
+	color: black;
+}
+
+.remove-book {
+	background-color: #db3a34;
+}
+
+.read-book {
+	background-color: #37ff8b;
+	width: 51px;
+	text-align: center;
+}
+
+.read {
+	background-color: #ffc857;
+}
+
+.book-title,
+.book-author,
+.book-pages,
+.remove-book {
+	margin-left: 5px;
+}
