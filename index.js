@@ -1,18 +1,19 @@
-let booksCreated = localStorage.getItem('booksCreated') || 1;
-
-function Book(title, author, pages, image, isRead) {
-	this.id = booksCreated;
-	this.title = title;
-	this.author = author;
-	this.pages = pages;
-	this.image = image;
-	this.isRead = isRead;
-	booksCreated++;
+class Book {
+	static booksCreated = localStorage.getItem('booksCreated') || 0;
+	constructor(title, author, pages, image, isRead) {
+		this.id = Book.booksCreated;
+		this.title = title;
+		this.author = author;
+		this.pages = pages;
+		this.image = image;
+		this.isRead = isRead;
+		Book.booksCreated++;
+	}
 }
 
 function addBookToLibrary(book) {
 	updateLocalStorage(book);
-	localStorage.setItem('booksCreated', booksCreated);
+	localStorage.setItem('booksCreated', Book.booksCreated);
 }
 
 function removeBookFromLibrary(id) {
@@ -20,7 +21,7 @@ function removeBookFromLibrary(id) {
 }
 
 function updateLocalStorage(book) {
-	localStorage.setItem(book.id, JSON.stringify(book));
+	localStorage.setItem(`book${book.id}`, JSON.stringify(book));
 }
 
 function removeFromLocalStorage(id) {
@@ -28,7 +29,9 @@ function removeFromLocalStorage(id) {
 }
 
 function getBooksFromLocalStorage() {
-	const localStorageKeys = Object.keys(localStorage).filter(Number);
+	const localStorageKeys = Object.keys(localStorage).filter((key) =>
+		key.match(/book\d/)
+	);
 	let books = [];
 	localStorageKeys.forEach((key) => {
 		const book = JSON.parse(localStorage.getItem(key));
